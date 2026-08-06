@@ -1,4 +1,4 @@
-
+import { Link } from "react-router";
 export default function ListaEstudiantes() {
     return (
         <section className="pagina">
@@ -12,9 +12,11 @@ export default function ListaEstudiantes() {
                             <span className="buscador__icono" aria-hidden="true">🔍</span>
                             <input type="text" placeholder="Buscar por nombre, correo o ID..." className="buscador__input" />
                         </div>
-                        <button className="boton boton--primario">
+                        {/**utilizando Link de react router para redireccionar al formulario de registrose*/}
+                       
+                        <Link to="/estudiante/registro" className="boton boton--primario">
                             <span aria-hidden="true">+</span> Agregar Estudiante
-                        </button>
+                        </Link>
                     </div>
             
                     <table className="tabla">

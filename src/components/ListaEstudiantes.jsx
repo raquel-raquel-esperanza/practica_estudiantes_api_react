@@ -1,5 +1,29 @@
 import { Link } from "react-router";
+import { getStudents } from "../api/estudiantes";
+import { useEffect, useState } from "react";
+
 export default function ListaEstudiantes() {
+    // creamos un  estado para la lista de estudiantes que viene de la API
+    const [listaEstudiantes, setlistaEstudiantes] = useState([]);
+
+
+    // método para obtener los estudiantes de la API y actualizar el estado 
+    const obtenerDetalleEstudiantes = async () => {
+        
+        const respuestaData = await getStudents();
+        //actualizamos el estado con la data de los estudiantes obtenida de la API
+        setlistaEstudiantes(respuestaData);
+        //console.log(respuestaData);
+    }
+
+    useEffect(() => {
+        obtenerDetalleEstudiantes()
+    }, [])  //dependencias vacías para que se ejecute solo una vez al montar el componente
+        
+   
+   
+   console.log(listaEstudiantes);
+   
     return (
         <section className="pagina">
             <section className="contenido">
@@ -29,14 +53,22 @@ export default function ListaEstudiantes() {
                         </tr>
                         </thead>
                         <tbody>
-                                <tr>
-                                    <td>estudiante</td>
-                                    <td>edad</td>
-                                    <td className="celda-correo">correo</td>
-                                    <td className="td-acciones">
-                                        <a href="#" className="enlace-detalle">Ver detalle ›</a>
-                                    </td>
-                                </tr>
+                            {
+                                //ITERANDO EL ESTADO DEL ARREGLO ESTUDIANTES PARA MOSTRARLO EN LA TABLA
+                               listaEstudiantes.map((estudiante, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{estudiante.nombre}</td>
+                                            <td>{estudiante.edad}</td>
+                                            <td className="celda-correo">{estudiante.correo}</td>
+                                            <td className="td-acciones">
+                                                <Link to={`/estudiantes/detalle/${estudiante.id}`}
+                                                 className="enlace-detalle">Ver detalle ›</Link>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
                         </tbody>
                     </table>
             

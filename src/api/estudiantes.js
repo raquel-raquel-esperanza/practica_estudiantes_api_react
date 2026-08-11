@@ -25,3 +25,9 @@ export const getStudentById = async (studentID) => {
     const respuesta = await axios.get(`https://expressapiestudiantes-production.up.railway.app/api/estudiantes/${studentID}`);
     return respuesta.data;
 }
+
+// método para registrar un estudiante
+export const registerStudent = async (studentData) => {
+    const respuesta = await axios.post("https://expressapiestudiantes-production.up.railway.app/api/estudiantes", studentData);
+    return respuesta.data;
+}

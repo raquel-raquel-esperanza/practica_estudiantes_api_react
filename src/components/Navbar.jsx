@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router"
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import ListaEstudiantes from "./ListaEstudiantes"
 import RegistroEstudiante from "./RegistroEstudiante"
 import DetalleEstudiante from "./DetalleEstudiante"
+import EditarCorreo from "./EditarCorreo"
 
 export default function Navbar() {
     return (
@@ -30,6 +31,8 @@ export default function Navbar() {
                 <Route path="/estudiante/registro" element={<RegistroEstudiante />} />
                 /** creando una ruta parametrizada */
                 <Route path="/estudiantes/detalle/:estudianteId" element={<DetalleEstudiante />} />
+                 /** tarea editar correo */
+                <Route path="/estudiante/editar/:id" element={<EditarCorreo />} />
             </Routes>
         </BrowserRouter>
     )

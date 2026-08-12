@@ -1,6 +1,6 @@
-import { Link } from "react-router";
 import { getStudents } from "../api/estudiantes";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function ListaEstudiantes() {
     // creamos un  estado para la lista de estudiantes que viene de la API
@@ -23,7 +23,14 @@ export default function ListaEstudiantes() {
    
    
    console.log(listaEstudiantes);
-   
+   const actualizarCorreo = async (req, res) => {
+    const estudiante = await prisma.estudiante.update({
+        where: { id: Number(req.params.id) },
+        data: { correo: req.body.correo },
+        select: { correo: true } 
+    })
+    res.json(estudiante)
+}
     return (
         <section className="pagina">
             <section className="contenido">
@@ -64,6 +71,14 @@ export default function ListaEstudiantes() {
                                             <td className="td-acciones">
                                                 <Link to={`/estudiantes/detalle/${estudiante.id}`}
                                                  className="enlace-detalle">Ver detalle ›</Link>
+                                            <td className="td-acciones">
+                                                 <Link to={`/estudiantes/detalle/${estudiante.id}`} className="enlace-detalle">
+                                                     Ver detalle ›
+                                                     </Link>
+                                                    <Link to={`/estudiante/editar/${estudiante.id}`} className="enlace-detalle">
+                                                     Editar correo ›
+                                                </Link>
+                                                 </td>
                                             </td>
                                         </tr>
                                     )

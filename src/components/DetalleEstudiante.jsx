@@ -1,9 +1,9 @@
 //import React from 'react'
 
-import { useState } from "react";
+import {useEffect, useState } from "react";
 import { getStudentById } from "../api/estudiantes";
-import { useParams } from "react-router";
-import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
     
 export default function DetalleEstudiante() {
     // creando estado donde se va a guardar la información del estudiante
@@ -11,7 +11,6 @@ export default function DetalleEstudiante() {
     // capturando el parámetro de la ruta para obtener el ID del estudiante
     const { estudianteId } = useParams();
     
-
 
     // método para obtener el detalle del estudiante de la API
     const obtenerDetalleEstudiante = async () => {
@@ -22,12 +21,10 @@ export default function DetalleEstudiante() {
         setEstudiante(respuesta);
     }
 
-    useEffect(() => {
-
-        obtenerDetalleEstudiante();
-    }, [estudianteId]); //dependencia estudianteId para que se ejecute cada vez que cambie el ID del estudiante en la ruta  
+     useEffect(() => {
+        obtenerDetalleEstudiante()
+    }, [])
    
-    console.log(estudiante);
 
   return (
    <section className="pagina">

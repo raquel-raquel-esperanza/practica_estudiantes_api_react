@@ -148,7 +148,7 @@
 .td-acciones {
     display: flex;
     flex-direction: column;   /* uno debajo del otro, alineados a la derecha */
-    align-items: flex-end;    /* los alinea a la derecha, como en tu diseño */
+    align-items: flex-end;    /* los alinea a la derecha */
     gap: 4px;                 /* espacio entre los dos enlaces */
 }
 

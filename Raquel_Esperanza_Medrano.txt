@@ -1,0 +1,8 @@
+TAREA: Aplicación React que consume una API REST, 
+renderiza datos de forma condicional y contiene un formulario con validaciones dinámicas. Repositorio en GitHub.
+
+LINK git GitHub: 
+https://github.com/raquel-raquel-esperanza/practica_estudiantes_api_react
+
+Gracias por su apoyo ante mis dificultades de salud en estos últimos días, Bendiciones ing. Kenia
+

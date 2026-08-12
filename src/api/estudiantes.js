@@ -37,7 +37,7 @@ export const saveStudent = async (studentData) => {
 export const updateEmail = async (studentID, correo) => {
     const respuesta = await axios.patch(
         `https://expressapiestudiantes-production.up.railway.app/api/estudiantes/${studentID}`,
-        { nuevo_correo: correo }   // 👈 cambia el nombre de la propiedad
-    )
-    return respuesta.data
+        { nuevo_correo: correo }   
+    );
+    return respuesta.data;
 }

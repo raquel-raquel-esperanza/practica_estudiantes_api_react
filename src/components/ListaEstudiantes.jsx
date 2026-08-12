@@ -64,23 +64,19 @@ export default function ListaEstudiantes() {
                                 //ITERANDO EL ESTADO DEL ARREGLO ESTUDIANTES PARA MOSTRARLO EN LA TABLA
                                listaEstudiantes.map((estudiante, index) => {
                                     return (
-                                        <tr key={index}>
-                                            <td>{estudiante.nombre}</td>
-                                            <td>{estudiante.edad}</td>
-                                            <td className="celda-correo">{estudiante.correo}</td>
-                                            <td className="td-acciones">
-                                                <Link to={`/estudiantes/detalle/${estudiante.id}`}
-                                                 className="enlace-detalle">Ver detalle ›</Link>
-                                            <td className="td-acciones">
-                                                 <Link to={`/estudiantes/detalle/${estudiante.id}`} className="enlace-detalle">
-                                                     Ver detalle ›
-                                                     </Link>
-                                                    <Link to={`/estudiante/editar/${estudiante.id}`} className="enlace-detalle">
-                                                     Editar correo ›
-                                                </Link>
-                                                 </td>
-                                            </td>
-                                        </tr>
+                                       <tr key={estudiante.id}>
+                                        <td>{estudiante.nombre}</td>
+                                        <td>{estudiante.edad}</td>
+                                        <td className="celda-correo">{estudiante.correo}</td>
+                                        <td className="td-acciones">
+                                            <Link to={`/estudiantes/detalle/${estudiante.id}`} className="enlace-detalle">
+                                            Ver detalle ›
+                                            </Link>
+                                            <Link to={`/estudiante/editar/${estudiante.id}`} className="enlace-detalle">
+                                            Editar correo ›
+                                            </Link>
+                                        </td>
+                                    </tr>
                                     )
                                 })
                             }

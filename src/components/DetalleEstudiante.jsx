@@ -31,15 +31,14 @@ export default function DetalleEstudiante() {
             <section className="contenido contenido--angosto">
                 <h1 className="titulo">Detalle del Estudiante</h1>
                 <p className="subtitulo">Visualiza la información detallada del estudiante seleccionado.</p>
-                <div className="tarjeta">
+                
                     <div className="detalle-estudiante">
-                       
                         <h2 className="titulo--secundario">Nombre: {estudiante.nombre}</h2>
                          <p><strong>ID del estudiante: </strong> {estudiante.id}</p>
                         <p><strong>Edad:</strong> {estudiante.edad}</p>
                         <p><strong>Correo:</strong> {estudiante.correo}</p>
                     </div>
-                </div>
+               
             </section>
     </section>
   )
